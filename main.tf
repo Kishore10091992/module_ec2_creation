@@ -45,9 +45,7 @@ module "security_group" {
  }
 }
 
-module "ec2" {
- source = "./modules/ec2"
- data "aws_ami" "ec2_ami" {
+data "aws_ami" "ec2_ami" {
   most_recent = true
   owners = ["amazon"]
 
@@ -70,6 +68,8 @@ module "ec2" {
   }
  }
 
+module "ec2" {
+ source = "./modules/ec2"
  ami = data.aws_ami.ec2_ami.id
  instance_type = "t2.micro"
  key_name = aws_key_pair.main_key.key_name
