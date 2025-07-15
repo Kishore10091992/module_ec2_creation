@@ -18,6 +18,11 @@ variable "protocol" {
   type = string
 }
 
+variable "vpc_id" {
+ description = "vpc id"
+ type = string
+}
+
 variable "tags" {
  description = "tags for sg"
  type = map(string)
