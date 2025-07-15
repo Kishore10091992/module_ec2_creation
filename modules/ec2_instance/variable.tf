@@ -15,5 +15,5 @@ variable "key_pair" {
 
 variable "tags" {
  description = "ec2 tags"
- type = string
+ type = map(string)
 }
