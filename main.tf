@@ -25,7 +25,7 @@ module "vpc" {
 
 module "security_group" {
  source = "./modules/security_group"
- vpc_id = module.main_vpc.vpc_id
+ vpc_id = module.vpc.vpc_id
  ingress {
   from_port = 0
   to_port = 0
