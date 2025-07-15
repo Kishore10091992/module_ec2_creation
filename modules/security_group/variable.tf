@@ -4,7 +4,7 @@ variable "default_ip" {
 }
 
 variable "from_port" {
- descrition = "from port for sg"
+ description = "from port for sg"
  type = number
 }
 
