@@ -8,7 +8,7 @@ variable "instance_type" {
  type = string
 }
 
-variable "key_pair" {
+variable "key_name" {
  description = "ec2 keypair"
  type = string
 }
