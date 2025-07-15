@@ -18,7 +18,7 @@ module "vpc" {
  availability_zone = "us-east-1a"
  route_cidr = "0.0.0.0/0"
 
- tags {
+ tags = {
   Name = "module_vpc"
  }
 }
@@ -40,13 +40,13 @@ module "security_group" {
   cidr_block = 0
  }
 
- tags {
+ tags = {
   Name = "module_sg"
  }
 }
 
 module "ec2" {
- source = "./mudules/ec2"
+ source = "./modules/ec2"
  data "aws_ami" "ec2_ami" {
   most_recent = true
   owners = ["amazon"]
@@ -65,7 +65,7 @@ module "ec2" {
   key_name = "main_key"
   public_key = tls_private_key.generate_key.public_key_openssh
 
-  tags {
+  tags = {
    Name = "modulw_keypair"
   }
  }
@@ -74,7 +74,7 @@ module "ec2" {
  instance_type = "t2.micro"
  key_name = aws_key_pair.main_key.key_name
 
- tags {
+ tags = {
   Name = "module-ec2"
  }
 }
