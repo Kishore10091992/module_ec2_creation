@@ -16,7 +16,7 @@ module "vpc" {
  vpc_cidr = "172.168.0.0/16"
  subnet_cidr = "172.168.0.0/24"
  availability_zone = "us-east-1a"
- route_cidr = "0.0.0.0/0"
+ default_ip = "0.0.0.0/0"
 
  tags = {
   Name = "module_vpc"
@@ -51,7 +51,7 @@ data "aws_ami" "ec2_ami" {
 
   filter {
    name = "name"
-   values = ["amzn2-ami-hvm-*]
+   values = ["amzn2-ami-hvm-*"]
   }
  }
 
@@ -70,7 +70,7 @@ data "aws_ami" "ec2_ami" {
 
 module "ec2" {
  source = "./modules/ec2"
- ami = data.aws_ami.ec2_ami.id
+ ami_id = data.aws_ami.ec2_ami.id
  instance_type = "t2.micro"
  key_name = aws_key_pair.main_key.key_name
 
