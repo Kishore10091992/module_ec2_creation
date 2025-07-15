@@ -1,4 +1,4 @@
-variable "amin_id" {
+variable "ami_id" {
  description = "ec2 ami id"
  type = string
 }
