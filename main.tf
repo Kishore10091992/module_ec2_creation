@@ -55,7 +55,7 @@ data "aws_ami" "ec2_ami" {
   public_key = tls_private_key.generate_key.public_key_openssh
 
   tags = {
-   Name = "modulw_keypair"
+   Name = "module_keypair"
   }
  }
 
@@ -63,6 +63,8 @@ module "ec2" {
  source = "./modules/ec2"
  ami_id = data.aws_ami.ec2_ami.id
  instance_type = "t2.micro"
+ subnet_id = module.vpc.subnet_id
+ sg_id = module.security_group.sg_id
  key_name = aws_key_pair.main_key.key_name
 
  tags = {

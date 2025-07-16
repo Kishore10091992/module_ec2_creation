@@ -17,3 +17,13 @@ variable "tags" {
  description = "ec2 tags"
  type = map(string)
 }
+
+variable "subnet_id" {
+ description = "ec2 subnet id"
+ type = string
+}
+
+variable "sg_id" {
+ description = "ec2 security group id"
+ type = string
+}

@@ -30,15 +30,3 @@ resource "aws_route_table_association" "main_rt_tb_ass" {
  subnet_id = aws_subnet.main_subnet.id
  route_table_id = aws_route_table.main_rt_tb.id
 }
-
-resource "aws_network_interface" "main_nic" {
- subnet_id = aws_subnet.main_subnet.id
- security_groups = [aws_security_group.main_sg.id]
- tags = var.tags
-}
-
-resource "aws_eip" "main_eip" {
- domain = "vpc"
- network_interface_id = aws_network_interface.main_nic.id
- tags = var.tags
-}

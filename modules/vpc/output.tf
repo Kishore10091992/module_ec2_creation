@@ -17,13 +17,3 @@ output "rt_id" {
  description = "route table id"
  value = aws_route_table.main_rt_tb.id
 }
-
-output "nic_id" {
- description = "nic id"
- value = aws_network_interface.main_nic.id
-}
-
-output "eip_id" {
- description = "eip id"
- value = aws_eip.main_eip.id
-}
